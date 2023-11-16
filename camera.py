@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from datetime import datetime, time
 from typing import Dict, Set, Optional, Union, List
 import xml.etree.ElementTree as ElementTree
 
@@ -168,5 +169,10 @@ class OlympusCamera:
             results.append(params)
         return results
 
-    def xml_query(self, command:str,**args)->Optional[Union[Dict[str,str],List[Dict[str,str]]]]:
-        return self.xml_response(self.send_command(command,**args))
+    def xml_query(self, command: str, **args) -> Optional[Union[Dict[str, str], List[Dict[str, str]]]]:
+        return self.xml_response(self.send_command(command, **args))
+
+    def set_clock(self) -> None:
+        self.send_command('switch_cammode', mode='play')
+        self.send_command('set_utctimediff', utctime=datetime.utcnow().strftime("%Y%m%dT%H%M%S"),
+                          diff=time.strftime("%z"))

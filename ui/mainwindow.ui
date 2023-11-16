@@ -30,7 +30,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>26</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu_File">
@@ -40,9 +40,18 @@
     <addaction name="actionConnect_camera"/>
     <addaction name="actionConnect_MockService"/>
     <addaction name="separator"/>
+    <addaction name="actionCamera_properties"/>
+    <addaction name="separator"/>
     <addaction name="actionE_xit"/>
    </widget>
+   <widget class="QMenu" name="menu_Help">
+    <property name="title">
+     <string>&amp;Help</string>
+    </property>
+    <addaction name="action_About"/>
+   </widget>
    <addaction name="menu_File"/>
+   <addaction name="menu_Help"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionE_xit">
@@ -58,6 +67,16 @@
   <action name="actionConnect_MockService">
    <property name="text">
     <string>Connect MockService</string>
+   </property>
+  </action>
+  <action name="actionCamera_properties">
+   <property name="text">
+    <string>Camera properties...</string>
+   </property>
+  </action>
+  <action name="action_About">
+   <property name="text">
+    <string>&amp;About</string>
    </property>
   </action>
  </widget>
