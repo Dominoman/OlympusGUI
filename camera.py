@@ -176,3 +176,7 @@ class OlympusCamera:
         self.send_command('switch_cammode', mode='play')
         self.send_command('set_utctimediff', utctime=datetime.utcnow().strftime("%Y%m%dT%H%M%S"),
                           diff=time.strftime("%z"))
+
+    def get_unusedcapacity(self)->str:
+        result=self.xml_query('get_unusedcapacity')
+        return result['unused']
