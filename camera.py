@@ -69,9 +69,8 @@ class OlympusCamera:
         for param in parent:
             if param.tag.startswith('cmd'):
                 return {self.ANY_PARAMETER: {param.attrib['name'].strip(): self.commandlist_params(param)}}
-            else:
-                name = param.attrib['name'].strip() if 'name' in param.attrib else self.ANY_PARAMETER
-                params[name] = self.commandlist_cmds(param)
+            name = param.attrib['name'].strip() if 'name' in param.attrib else self.ANY_PARAMETER
+            params[name] = self.commandlist_cmds(param)
         return params if len(params) else self.EMPTY_PARAMETERS
 
     def commandlist_cmds(self, parent: ElementTree.Element) -> Optional[Dict[str, Optional[dict]]]:

@@ -28,14 +28,12 @@ class PropertiesDialog(QDialog, Ui_PropertiesDialog):
         self.properties.setItem(3, 1, QTableWidgetItem(camera.get_unusedcapacity()))
         self.properties.setItem(4, 0, QTableWidgetItem("Dcf file"))
         self.properties.setItem(4, 1, QTableWidgetItem(camera.xml_query('get_dcffilenum')['dcffile']))
-        i = 5
-        for row in xml:
+        for i, row in enumerate(xml, start=5):
             self.properties.setItem(i, 0, QTableWidgetItem(row["propname"]))
             self.properties.setItem(i, 1, QTableWidgetItem(row["value"]))
             self.properties.setItem(i, 2, QTableWidgetItem(row["attribute"]))
             if "enum" in row:
                 self.properties.setItem(i, 3, QTableWidgetItem(row["enum"]))
-            i += 1
 
 
 class SettingsDialog(QDialog,Ui_SettingsDialog):
