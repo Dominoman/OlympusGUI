@@ -1,6 +1,6 @@
 import sys
 
-from PyQt6.QtWidgets import QApplication, QMainWindow, QMessageBox, QDialog, QTableWidgetItem
+from PySide6.QtWidgets import QDialog, QTableWidgetItem, QMainWindow, QMessageBox, QApplication
 
 from camera import OlympusCamera
 from mainwindow import Ui_MainWindow
